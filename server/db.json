@@ -1,0 +1,15 @@
+{
+  "todos": [
+    {
+      "title": "prova post zustand",
+      "description": "zustand post description",
+      "id": "1dc01228-d161-419c-946e-6c27d2d79037"
+    }
+  ],
+  "types": [
+    {
+      "value": "general",
+      "label": "General"
+    }
+  ]
+}

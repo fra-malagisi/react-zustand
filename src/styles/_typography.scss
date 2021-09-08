@@ -1,0 +1,91 @@
+// region FONT VARIABLES
+$font-family-primary: Roboto, Arial, sans-serif;
+
+$font-size-default: 16px;
+
+$font-size-smaller: 0.75rem; //12
+$font-size-small: 0.875rem; //14
+$font-size-base: 1rem; //16
+$font-size-medium: 1.125rem; //18
+$font-size-large: 1.5rem; //24
+$font-size-larger: 2.5rem; //40
+
+$letter-spacing-smaller: 1px;
+$letter-spacing-small: 1px;
+$letter-spacing-base: 1px;
+$letter-spacing-medium: 1px;
+$letter-spacing-large: 1px;
+$letter-spacing-larger: 1px;
+
+$line-height-smaller: 1.5;
+$line-height-small: 1.429;
+$line-height-base: 1.375;
+$line-height-medium: 1.333;
+$line-height-large: 1.25;
+$line-height-larger: 1;
+// endregion FONT VARIABLES
+
+// region FONT MIXINS
+// -- Private mixin
+@mixin common-typography($is-bold: false, $color: null) {
+  @if ($is-bold) {
+    font-weight: 700;
+  } @else {
+    font-weight: 400;
+  }
+
+  @if ($color) {
+    color: $color;
+  }
+}
+// -- end Private mixin
+@mixin title($is-bold: false, $color: null) {
+  @include common-typography($is-bold, $color);
+
+  font-size: $font-size-larger;
+  letter-spacing: $letter-spacing-larger;
+  line-height: $line-height-larger;
+}
+
+@mixin headline($is-bold: false, $color: null, $has-line-height: true) {
+  @include common-typography($is-bold, $color);
+
+  font-size: $font-size-large;
+  letter-spacing: $letter-spacing-large;
+  @if ($has-line-height) {
+    line-height: $line-height-large;
+  }
+}
+
+@mixin subtitle-1($is-bold: false, $color: null) {
+  @include common-typography($is-bold, $color);
+
+  font-size: $font-size-medium;
+  letter-spacing: $letter-spacing-medium;
+  line-height: $line-height-medium;
+}
+
+@mixin subtitle-2($is-bold: false, $color: null) {
+  @include common-typography($is-bold, $color);
+
+  font-size: $font-size-base;
+  letter-spacing: $letter-spacing-base;
+  line-height: $line-height-base;
+}
+
+@mixin body($is-bold: false, $color: null) {
+  @include common-typography($is-bold, $color);
+
+  font-size: $font-size-small;
+  letter-spacing: $letter-spacing-small;
+  line-height: $line-height-small;
+}
+
+@mixin caption($is-bold: false, $color: null) {
+  @include common-typography($is-bold, $color);
+
+  font-size: $font-size-smaller;
+  letter-spacing: $letter-spacing-smaller;
+  line-height: $line-height-smaller;
+}
+// endregion FONT MIXINS

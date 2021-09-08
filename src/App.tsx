@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { FC, useEffect } from 'react';
+import { Layout } from 'antd';
+import { Content, Header } from 'antd/lib/layout/layout';
+import AddTodoForm from './components/add-todo-form/add-todo-form.component';
+import TodoList from './components/todo-list/todo-list.component';
+import { useTodoStore } from './stores/todo.store';
 
-function App() {
+import './App.scss';
+
+const App: FC = () => {
+ 
+  const {getAllTodo, getAllTypes, todoList, todoTypes} = useTodoStore();
+
+  useEffect(() => {
+    getAllTodo();
+    getAllTypes();
+  }, [])
+
+  useEffect(() => {
+    console.log(todoList);
+  }, [todoList])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout className="layout">
+      <Header className="header">
+        Todo List
+      </Header>
+      <Content className="content">
+        <AddTodoForm todoTypes={todoTypes}></AddTodoForm>
+        <TodoList todoList={todoList}></TodoList>
+      </Content>
+    </Layout>
   );
 }
 

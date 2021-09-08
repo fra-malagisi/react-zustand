@@ -1,0 +1,9 @@
+.todo-list {
+  &__card-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__delete-icon {
+    cursor: pointer;
+  }
+}

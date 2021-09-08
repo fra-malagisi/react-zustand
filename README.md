@@ -44,3 +44,28 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Zustand Notes
+
+ small, fast and scalable bearbones state-management solution using simplified flux principles.
+
+
+
+### `Flux principles`
+
+<!-- Font https://medium.com/@goatslacker/principles-of-flux-ea872bc20772 -->
+
+Flux is an application architecture for building complex user interfaces. It eschews MVC in favor of unidirectional data flow. What this means is that data enters through a single place (your actions) and then flow outward through their state manager (the store) and finally onto the view. The view can then restart the flow by calling other actions in response to user input.
+
+- Stores have no setters.
+- Inversion of Control.
+- Single Central Dispatcher.
+- All stores receive the dispatch.
+- Unidirectional data flow: Action → Dispatcher → Stores → Views
+  
+### `Zombie child problem`
+
+- Multiple nested connected components are mounted in a first pass, causing a child component to subscribe to the store before its parent.
+- An action is dispatched that deletes data from the store, such as a todo item.
+- The parent component would stop rendering that child as a result.
+- However, because the child subscribed first, its subscription runs before the parent stops rendering it. When it reads a value from the store based on props, that data no longer exists, and if the extraction logic is not careful, this may result in an error being thrown.
