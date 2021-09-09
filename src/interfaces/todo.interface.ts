@@ -6,6 +6,6 @@ export interface ITodo {
 }
 
 export interface ITodoType {
-  value: string;
-  label: string;
+  id?: string;
+  name: string;
 }

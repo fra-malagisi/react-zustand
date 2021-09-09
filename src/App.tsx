@@ -1,9 +1,9 @@
 import { FC, useEffect } from 'react';
 import { Layout } from 'antd';
 import { Content, Header } from 'antd/lib/layout/layout';
-import AddTodoForm from './components/add-todo-form/add-todo-form.component';
 import TodoList from './components/todo-list/todo-list.component';
 import { useTodoStore } from './stores/todo.store';
+import AddTodoPage from './pages/add-todo.page';
 
 import './App.scss';
 
@@ -26,7 +26,7 @@ const App: FC = () => {
         Todo List
       </Header>
       <Content className="content">
-        <AddTodoForm todoTypes={todoTypes}></AddTodoForm>
+        <AddTodoPage></AddTodoPage>
         <TodoList todoList={todoList}></TodoList>
       </Content>
     </Layout>

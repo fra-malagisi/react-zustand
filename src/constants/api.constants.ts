@@ -6,8 +6,9 @@ const apiControllers = {
 };
 
 export const apiTodo = {
-  GET_ALL: `${apiControllers.TODO}`,
-  ADD: `${apiControllers.TODO}`,
-  DELETE: (id: string) => `${apiControllers.TODO}/${id}`,
+  GET_ALL_TODO: `${apiControllers.TODO}`,
+  ADD_TODO: `${apiControllers.TODO}`,
+  DELETE_TODO: (id: string) => `${apiControllers.TODO}/${id}`,
   GET_TYPES: `${apiControllers.TYPES}`,
+  ADD_TYPE: `${apiControllers.TYPES}`
 };

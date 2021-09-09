@@ -8,8 +8,12 @@
   ],
   "types": [
     {
-      "value": "general",
-      "label": "General"
+      "id": "1dc01228-d161-419c-946e-6c27d2d79038",
+      "name": "General"
+    },
+    {
+      "name": "prova",
+      "id": "cc3dde48-21aa-4d09-b199-245bb534222d"
     }
   ]
 }
