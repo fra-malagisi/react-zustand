@@ -1,9 +1,10 @@
 {
   "todos": [
     {
-      "title": "prova post zustand",
-      "description": "zustand post description",
-      "id": "1dc01228-d161-419c-946e-6c27d2d79037"
+      "title": "reerer",
+      "type": "1dc01228-d161-419c-946e-6c27d2d79038",
+      "description": "rtrr",
+      "id": "da7f9d42-6a1a-4953-a484-79c65e1ec8dc"
     }
   ],
   "types": [
@@ -14,6 +15,10 @@
     {
       "name": "prova",
       "id": "cc3dde48-21aa-4d09-b199-245bb534222d"
+    },
+    {
+      "name": "Lavoro",
+      "id": "3e3e0cb1-a456-44fa-83ad-59752873c1b6"
     }
   ]
 }

@@ -1,11 +1,16 @@
 import { FC, useEffect } from 'react';
-import { Layout } from 'antd';
+import { Layout, Tabs, Divider, Empty } from 'antd';
 import { Content, Header } from 'antd/lib/layout/layout';
 import TodoList from './components/todo-list/todo-list.component';
 import { useTodoStore } from './stores/todo.store';
 import AddTodoPage from './pages/add-todo.page';
+import { ITodoType } from './interfaces/todo.interface';
 
 import './App.scss';
+
+const { TabPane } = Tabs;
+
+
 
 const App: FC = () => {
  
@@ -13,12 +18,13 @@ const App: FC = () => {
 
   useEffect(() => {
     getAllTodo();
-    getAllTypes();
   }, [])
 
   useEffect(() => {
-    console.log(todoList);
-  }, [todoList])
+    if (todoTypes.length === 0) {
+      getAllTypes();
+    }
+  }, [todoList, todoTypes])
 
   return (
     <Layout className="layout">
@@ -27,7 +33,33 @@ const App: FC = () => {
       </Header>
       <Content className="content">
         <AddTodoPage></AddTodoPage>
-        <TodoList todoList={todoList}></TodoList>
+        {
+          todoTypes && 
+          <>
+            <Divider />
+            <div className="tabs-container">
+              {
+                todoTypes.length > 0 && 
+              <Tabs defaultActiveKey="1">
+                {
+                  todoTypes.filter((type: ITodoType) => type.todos && type.todos.length > 0)
+                  .map((type: ITodoType, i: number) => (
+                    <TabPane tab={type.name} key={i + 1}>
+                      {
+                        type.todos &&
+                        <TodoList todoList={type.todos}></TodoList>
+                      }
+                    </TabPane>
+                  ))
+                }
+              </Tabs>
+              }
+              {
+                !todoList || todoList.length === 0 && <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+              }
+            </div>
+          </>
+        }
       </Content>
     </Layout>
   );

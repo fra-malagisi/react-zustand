@@ -1,11 +1,12 @@
 export interface ITodo {
   id?: string;
   title: string;
-  type?: ITodoType;
-  description: string; 
+  description: string;
+  type: string;
 }
 
 export interface ITodoType {
   id?: string;
   name: string;
+  todos?: ITodo[];
 }

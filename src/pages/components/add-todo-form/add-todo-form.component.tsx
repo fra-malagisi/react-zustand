@@ -21,6 +21,11 @@ const AddTodoForm: FC<IAddTodoFormProps> = ({todoTypes, handleAddTypeButton}: IA
 
   const {addTodo} = useTodoStore();
 
+  const onTypeChange = (type: string) => {
+    form.setFieldsValue({type});
+    console.log(form.getFieldsValue(), type);
+  }
+
   const onFinish = async (todo: ITodo) => {
     const todoCreated = await TodoService.addTodo(todo);
     addTodo(todoCreated);
@@ -45,15 +50,15 @@ const AddTodoForm: FC<IAddTodoFormProps> = ({todoTypes, handleAddTypeButton}: IA
           placeholder="Insert a title"/>
       </Form.Item>
       <Row>
-        <Col span={8}>
+        <Col span={24}>
           <Form.Item name="type" label="Type" rules={[{ required: true }]}>
             <Row>
-            <Col span={8} style={{"marginRight": '10px'}}>
+            <Col span={10} style={{"marginRight": '10px'}}>
               <Select
                 placeholder="Select a type"
-                allowClear
+                onChange={onTypeChange}
               >
-                {todoTypes.map((type: ITodoType) => <Option value={type.id || ''}>{type.name}</Option>)}
+                {todoTypes.map((type: ITodoType) => type.id && <Option key={type.id} value={type.id}>{type.name}</Option>)}
               </Select>
             </Col>
             <Col span={6}>

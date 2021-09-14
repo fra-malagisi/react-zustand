@@ -17,7 +17,7 @@ const TodoList: FC<ITodoListProps> = ({todoList}: ITodoListProps) => {
     if (!todo.id) {
       throw new Error('id is undefined');
     }
-    deleteTodo(todo?.id);
+    deleteTodo(todo?.id, todo.type);
   }
 
   return (
