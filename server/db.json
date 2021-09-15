@@ -1,12 +1,5 @@
 {
-  "todos": [
-    {
-      "title": "reerer",
-      "type": "1dc01228-d161-419c-946e-6c27d2d79038",
-      "description": "rtrr",
-      "id": "da7f9d42-6a1a-4953-a484-79c65e1ec8dc"
-    }
-  ],
+  "todos": [],
   "types": [
     {
       "id": "1dc01228-d161-419c-946e-6c27d2d79038",

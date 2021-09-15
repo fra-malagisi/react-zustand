@@ -4,9 +4,10 @@ import { Content, Header } from 'antd/lib/layout/layout';
 import TodoList from './components/todo-list/todo-list.component';
 import { useTodoStore } from './stores/todo.store';
 import AddTodoPage from './pages/add-todo.page';
-import { ITodoType } from './interfaces/todo.interface';
+import { ITodo, ITodoType } from './interfaces/todo.interface';
 
 import './App.scss';
+import { TodoService } from './services/todo.service';
 
 const { TabPane } = Tabs;
 
@@ -14,7 +15,7 @@ const { TabPane } = Tabs;
 
 const App: FC = () => {
  
-  const {getAllTodo, getAllTypes, todoList, todoTypes} = useTodoStore();
+  const {getAllTodo, getAllTypes, deleteTodo, todoList, todoTypes} = useTodoStore();
 
   useEffect(() => {
     getAllTodo();
@@ -25,6 +26,14 @@ const App: FC = () => {
       getAllTypes();
     }
   }, [todoList, todoTypes])
+
+  const handleClickDelete = (todo: ITodo) => {
+    if (!todo.id) {
+      throw new Error('id is undefined');
+    }
+    TodoService.deleteTodo(todo);
+    deleteTodo(todo?.id, todo.type);
+  }
 
   return (
     <Layout className="layout">
@@ -47,7 +56,7 @@ const App: FC = () => {
                     <TabPane tab={type.name} key={i + 1}>
                       {
                         type.todos &&
-                        <TodoList todoList={type.todos}></TodoList>
+                        <TodoList todoList={type.todos} handleClickDelete={handleClickDelete}></TodoList>
                       }
                     </TabPane>
                   ))

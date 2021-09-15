@@ -8,17 +8,9 @@ import { useTodoStore } from '../../stores/todo.store';
 
 import './todo-list.component.scss';
 
-const TodoList: FC<ITodoListProps> = ({todoList}: ITodoListProps) => {
+const TodoList: FC<ITodoListProps> = ({todoList, handleClickDelete}: ITodoListProps) => {
 
-  const {deleteTodo} = useTodoStore();
-
-  const onDeleteClick = (todo: ITodo) => {
-    TodoService.deleteTodo(todo);
-    if (!todo.id) {
-      throw new Error('id is undefined');
-    }
-    deleteTodo(todo?.id, todo.type);
-  }
+  console.log(todoList)
 
   return (
     <List
@@ -34,7 +26,7 @@ const TodoList: FC<ITodoListProps> = ({todoList}: ITodoListProps) => {
                     type="primary"
                     shape="circle" icon={<DeleteOutlined />} 
                     danger
-                    onClick={() => onDeleteClick(item)}
+                    onClick={() => handleClickDelete(item)}
                   />
                 </div>}>{item.description}
             </Card>

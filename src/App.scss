@@ -1,5 +1,4 @@
 @use '../src/styles/typography';
-@import '~antd/dist/antd.css';
 
 .header {
   @include typography.headline(true, null, false);
