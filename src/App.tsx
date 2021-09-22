@@ -13,7 +13,7 @@ const { TabPane } = Tabs;
 
 
 
-const App: FC = () => {
+const App = (): JSX.Element => {
  
   const {getAllTodo, getAllTypes, deleteTodo, todoList, todoTypes} = useTodoStore();
 

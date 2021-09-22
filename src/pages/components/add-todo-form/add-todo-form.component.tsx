@@ -1,4 +1,4 @@
-import { FC, useRef } from 'react';
+import { useRef } from 'react';
 import {Input, Form, Button, Select, Row, Col} from 'antd';
 import { useForm } from 'antd/lib/form/Form';
 import { ITodo, ITodoType } from '../../../interfaces/todo.interface';
@@ -13,7 +13,7 @@ import './add-todo-form.component.scss';
 const { TextArea } = Input;
 const { Option } = Select;
 
-const AddTodoForm: FC<IAddTodoFormProps> = ({todoTypes, handleAddTypeButton}: IAddTodoFormProps) => {
+const AddTodoForm = ({todoTypes, handleAddTypeButton}: IAddTodoFormProps): JSX.Element => {
 
   const formRef = useRef<FormInstance>(null)
 

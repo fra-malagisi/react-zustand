@@ -23,7 +23,7 @@ const AddTodoPage: FC = () => {
       <Card title="Add ToDo" bordered={false}>
         <AddTodoForm todoTypes={todoTypes} handleAddTypeButton={openAddTypeModal}></AddTodoForm>
       </Card>
-      <Modal title="Add type" visible={isModalVisible} footer={null}>
+      <Modal title="Add type" visible={isModalVisible} footer={null} onCancel={closeModal}>
         <AddTodoTypeForm handleSubmit={closeModal}></AddTodoTypeForm>
       </Modal>
     </>

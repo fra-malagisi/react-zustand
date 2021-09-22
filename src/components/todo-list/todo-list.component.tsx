@@ -1,14 +1,11 @@
-import { FC } from 'react';
 import { List, Card, Button } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { ITodoListProps } from './todo-list.interface';
 import { ITodo } from '../../interfaces/todo.interface';
-import { TodoService } from '../../services/todo.service';
-import { useTodoStore } from '../../stores/todo.store';
 
 import './todo-list.component.scss';
 
-const TodoList: FC<ITodoListProps> = ({todoList, handleClickDelete}: ITodoListProps) => {
+const TodoList = ({todoList, handleClickDelete}: ITodoListProps): JSX.Element => {
 
   console.log(todoList)
 

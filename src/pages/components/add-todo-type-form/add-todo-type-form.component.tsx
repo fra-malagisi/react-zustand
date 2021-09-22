@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { Form, Input, Button, Row, Col } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
 import { PlusOutlined } from '@ant-design/icons';
@@ -7,7 +6,7 @@ import { TodoService } from '../../../services/todo.service';
 import { useTodoStore } from '../../../stores/todo.store';
 import { IAddTodoTypeFormProps } from './add-todo-type-form.interface';
 
-const AddTodoTypeForm: FC<IAddTodoTypeFormProps> = ({handleSubmit}: IAddTodoTypeFormProps) => {
+const AddTodoTypeForm = ({handleSubmit}: IAddTodoTypeFormProps): JSX.Element => {
 
   const [form] = useForm();
 
